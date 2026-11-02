@@ -1,0 +1,27 @@
+documents:
+  - doc_id: ml_yearning_vi
+    title: Machine Learning Yearning (Tiếng Việt)
+    filename: book_mly_with_cover_vn-5-64.pdf
+    expected_pages: 60
+    page_offset: 3
+  - doc_id: db_design_en
+    title: Database Design (2nd Edition)
+    filename: Database-Design-2nd-Edition-1660153697-10-57.pdf
+    expected_pages: 48
+    page_offset: 0
+chunking:
+  fixed_size: 256
+  fixed_overlap: 35
+  recursive_target: 300
+  recursive_max: 450
+embedding:
+  model: intfloat/multilingual-e5-base
+  device: cpu
+  batch_size: 8
+retrieval:
+  candidates: 8
+  top_k: 5
+  rrf_k: 60
+  # Ngưỡng phụ thuộc mô hình; hiệu chỉnh bằng eval/out_of_scope.csv.
+  min_dense_similarity: 0.78
+  min_bm25_score: 1.0
