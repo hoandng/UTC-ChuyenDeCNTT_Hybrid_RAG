@@ -33,7 +33,7 @@ class ChunkingConfig(BaseModel):
 
 class EmbeddingConfig(BaseModel):
     model: str = "intfloat/multilingual-e5-base"
-    device: str = "cpu"
+    device: str = "cuda"
     batch_size: int = Field(default=8, gt=0)
 
 

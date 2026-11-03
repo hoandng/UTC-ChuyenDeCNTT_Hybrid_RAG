@@ -16,7 +16,7 @@ chunking:
   recursive_max: 450
 embedding:
   model: intfloat/multilingual-e5-base
-  device: cpu
+  device: cuda
   batch_size: 8
 retrieval:
   candidates: 8

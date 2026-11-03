@@ -4,7 +4,7 @@
 
 ## Chạy từ đầu
 
-Yêu cầu Python 3.10+, khoảng 4 GB RAM trống và Internet ở lần cài thư viện/tải mô hình đầu tiên. Mô hình mặc định `intfloat/multilingual-e5-base` có trọng số khoảng 1,1 GB, chạy CPU. `make setup` ưu tiên `uv` nếu có, hoặc dùng `venv`/`pip`; cài PyTorch CPU trước để tránh tải CUDA.
+Yêu cầu Python 3.10+, GPU NVIDIA có driver hỗ trợ CUDA 12.8, khoảng 4 GB VRAM và Internet ở lần cài thư viện/tải mô hình đầu tiên. Mô hình mặc định `intfloat/multilingual-e5-base` có trọng số khoảng 1,1 GB, chạy GPU với batch size 8. `make setup` ưu tiên `uv` nếu có, hoặc dùng `venv`/`pip`; cài PyTorch 2.9.1 CUDA 12.8 theo [hướng dẫn PyTorch](https://pytorch.org/get-started/previous-versions/). Có thể đổi phiên bản bằng biến `TORCH_VERSION` của Makefile.
 
 ```bash
 make setup
@@ -14,6 +14,17 @@ make app          # http://localhost:8501
 ```
 
 Trong workspace đã cài thư viện và tạo chỉ mục, chỉ cần `make app`. Không cần kích hoạt virtualenv khi dùng Makefile.
+
+Embedding khi tạo chỉ mục và mã hóa câu hỏi đều dùng GPU (`EMBEDDING_DEVICE=cuda` trong `.env`). BM25 và FAISS vẫn chạy CPU; LLM gọi API chạy tại provider, còn GPU cho Ollama do Ollama quản lý riêng. Chuyển CPU/GPU với cùng model không yêu cầu tạo lại chỉ mục. Sau khi đổi môi trường, dừng ứng dụng đang chạy và khởi động lại bằng `make app`.
+
+Kiểm tra GPU và PyTorch sau khi cài:
+
+```bash
+nvidia-smi
+.venv/bin/python -c "import torch; print(torch.__version__); print('CUDA:', torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+```
+
+Nếu cần chạy CPU, đặt `EMBEDDING_DEVICE=cpu` trong `.env` và cài bằng `make setup TORCH_INDEX_URL=https://download.pytorch.org/whl/cpu`.
 
 Chạy từng bước hoặc không dùng `make`:
 

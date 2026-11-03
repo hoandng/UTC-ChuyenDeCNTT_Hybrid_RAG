@@ -1,14 +1,16 @@
 PYTHON ?= .venv/bin/python
+TORCH_VERSION ?= 2.9.1
+TORCH_INDEX_URL ?= https://download.pytorch.org/whl/cu128
 
 .PHONY: setup ingest chunk index pipeline app eval test
 setup:
 	@if command -v uv >/dev/null 2>&1; then \
 		uv venv --allow-existing .venv && \
-		uv pip install --python $(PYTHON) torch --index-url https://download.pytorch.org/whl/cpu && \
+		uv pip install --python $(PYTHON) --reinstall-package torch torch==$(TORCH_VERSION) --index-url $(TORCH_INDEX_URL) && \
 		uv pip install --python $(PYTHON) -r requirements.txt; \
 	else \
 		python3 -m venv .venv && \
-		$(PYTHON) -m pip install torch --index-url https://download.pytorch.org/whl/cpu && \
+		$(PYTHON) -m pip install --upgrade --force-reinstall torch==$(TORCH_VERSION) --index-url $(TORCH_INDEX_URL) && \
 		$(PYTHON) -m pip install -r requirements.txt; \
 	fi
 ingest:

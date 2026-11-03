@@ -1,0 +1,13 @@
+id,strategy,mode,refused,max_cosine,max_bm25
+O1,fixed,hybrid_rrf,True,0.7669917345046997,8.847773151994481
+O2,fixed,hybrid_rrf,True,0.7716723680496216,13.81284707590458
+O1,fixed,bm25_only,False,,8.847773151994481
+O2,fixed,bm25_only,False,,13.81284707590458
+O1,fixed,faiss_only,True,0.7669917345046997,
+O2,fixed,faiss_only,True,0.7716723680496216,
+O1,recursive,hybrid_rrf,True,0.773677408695221,9.479214238227149
+O2,recursive,hybrid_rrf,True,0.7645999193191528,9.091258916872421
+O1,recursive,bm25_only,False,,9.479214238227149
+O2,recursive,bm25_only,False,,9.091258916872421
+O1,recursive,faiss_only,True,0.773677408695221,
+O2,recursive,faiss_only,True,0.7645999193191528,

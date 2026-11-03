@@ -41,7 +41,7 @@ def rrf_fuse(bm25_results: list[SearchHit], faiss_results: list[SearchHit], k: i
 
 
 class Retriever:
-    def __init__(self, directory: Path, config: RetrievalConfig | None = None, encoder=None, device: str = "cpu"):
+    def __init__(self, directory: Path, config: RetrievalConfig | None = None, encoder=None, device: str = "cuda"):
         self.chunks, self.index, self.bm25, self.manifest = load_index(directory)
         self.by_id = {c.chunk_id: c for c in self.chunks}
         self.config = config or RetrievalConfig()

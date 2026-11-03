@@ -1,0 +1,16 @@
+id,category,question,doc_id,relevant_pages
+K1,keyword,What is a candidate key?,db_design_en,37;38
+K2,keyword,What does data redundancy mean?,db_design_en,1;4
+K3,keyword,Tập phát triển và tập kiểm tra được định nghĩa như thế nào?,ml_yearning_vi,9;10
+K4,keyword,Độ chệch và phương sai là gì?,ml_yearning_vi,35;36;37
+K5,keyword,What are the properties of a database?,db_design_en,6;7
+P1,paraphrase,Làm thế nào để nhiều người cùng truy cập một bản ghi mà không ảnh hưởng giao dịch?,db_design_en,2;4;11
+P2,paraphrase,Vì sao hai bộ dữ liệu dùng để chọn mô hình và kiểm chứng cuối cùng nên giống nhau về phân bố?,ml_yearning_vi,11;12
+P3,paraphrase,Nên lấy bao nhiêu mẫu để phát hiện khác biệt giữa các thuật toán và đánh giá kết quả cuối cùng?,ml_yearning_vi,13
+P4,paraphrase,Tôi nên xem các dự đoán sai như thế nào để biết ý tưởng cải thiện nào đáng thử?,ml_yearning_vi,23;24;25;26
+P5,paraphrase,How can applications remain unaffected when the way data is stored changes?,db_design_en,19;20;21
+S1,synthesis,So sánh độ chệch và phương sai và các kỹ thuật giảm từng loại lỗi.,ml_yearning_vi,35;37;41;43;45;46
+S2,synthesis,Phân biệt vai trò tập huấn luyện phát triển kiểm tra và giải thích cách chọn phân phối cùng kích thước hai tập sau.,ml_yearning_vi,9;10;11;12;13
+S3,synthesis,Compare file-based systems with databases in terms of redundancy concurrency security and recovery.,db_design_en,1;2;3;9;10;11;12
+S4,synthesis,Compare candidate keys primary keys alternate keys and foreign keys.,db_design_en,37;38;39
+S5,synthesis,Explain external conceptual and internal models and their relationship to data independence.,db_design_en,17;18;19;20;21

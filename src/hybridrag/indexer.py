@@ -27,6 +27,14 @@ class Encoder:
         import os
 
         os.environ.setdefault("HF_HOME", str(ROOT / ".cache/huggingface"))
+        import torch
+
+        if config.device.startswith("cuda") and not torch.cuda.is_available():
+            raise RuntimeError(
+                "Đã chọn CUDA nhưng PyTorch không truy cập được GPU. "
+                "Kiểm tra nvidia-smi và cài PyTorch CUDA bằng make setup; "
+                "hoặc đặt EMBEDDING_DEVICE=cpu trong .env để chạy CPU."
+            )
         from sentence_transformers import SentenceTransformer
 
         self.config = config
